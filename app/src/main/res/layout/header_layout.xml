@@ -77,6 +77,13 @@
                 android:layout_height="wrap_content"
                 android:text="500-5万"/>
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/layout_capacity"
             android:layout_weight="1"
