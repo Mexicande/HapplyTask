@@ -4,7 +4,7 @@ apply plugin: 'walle'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.cn.chars.freecash"
+        applicationId "com.cn.heres.cashmoney"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
@@ -92,5 +92,6 @@ dependencies {
     implementation 'com.yanzhenjie:permission:1.1.2'
     implementation 'junit:junit:4.12'
     implementation 'com.zyp.cardview:cardview:1.0.1'
+    implementation 'com.flyco.labelview:FlycoLabelView_Lib:1.0.2@aar'
 
 }

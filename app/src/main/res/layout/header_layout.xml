@@ -21,154 +21,189 @@
         >
     </cn.bingoogolapple.bgabanner.BGABanner>
     <LinearLayout
-        android:padding="10dp"
-        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
+        <RelativeLayout
+            android:background="@color/white"
             android:id="@+id/layout_spped"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_height="wrap_content">
-            <ImageView
+            <com.flyco.labelview.LabelView
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/icon_spped"/>
+                app:lv_fill_triangle="true"
+                app:lv_gravity="TOP_RIGHT"
+                app:lv_text="HOT"
+                app:lv_background_color="#FF5638"/>
+            <LinearLayout
+                android:layout_centerHorizontal="true"
+                android:id="@+id/View"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_image1"/>
+                <TextView
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/color_33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="极速放款"/>
+            </LinearLayout>
             <TextView
-                android:layout_marginTop="3dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/View"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
                 android:textSize="13sp"
                 android:textColor="@color/color_66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="极速贷款"/>
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textSize="10sp"
-                android:textColor="@color/text_color_79"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1万-10万"/>
-        </LinearLayout>
+                android:text="线上审批，最快3分钟放款"/>
+        </RelativeLayout>
         <LinearLayout
             android:id="@+id/layout_small"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@color/white"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_height="wrap_content">
-            <ImageView
+            <LinearLayout
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_small"/>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_image2"/>
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/color_33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="新品推荐"/>
+            </LinearLayout>
             <TextView
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:textSize="13sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/color_66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="小额贷"/>
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textSize="10sp"
-                android:textColor="@color/text_color_79"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="500-5万"/>
+                android:text="10款精选新品任你选"/>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:padding="10dp"
-        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
             android:id="@+id/layout_capacity"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:background="@color/white"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_height="wrap_content">
-            <ImageView
+            <LinearLayout
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_capacity"/>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_image3"/>
+                <TextView
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/color_33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="芝麻分贷"/>
+            </LinearLayout>
             <TextView
-                android:layout_marginTop="3dp"
-                android:textSize="13sp"
+                android:layout_marginTop="10dp"
+                android:textSize="12sp"
+                android:textColor="@color/color_66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="智能贷"/>
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textSize="10sp"
-                android:textColor="@color/text_color_79"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="身份证即可贷"/>
+                android:text="芝麻分达到600分即可"/>
         </LinearLayout>
+
         <LinearLayout
+            android:layout_marginLeft="10dp"
             android:id="@+id/layout_credit"
             android:layout_weight="1"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:background="@color/white"
             android:layout_width="0dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:layout_height="wrap_content">
-            <ImageView
+            <LinearLayout
+                android:gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_credit"/>
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_image4"/>
+                <TextView
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/color_33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="身份证贷"/>
+            </LinearLayout>
             <TextView
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:textSize="13sp"
+                android:textColor="@color/color_66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="任意贷"/>
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textSize="10sp"
-                android:textColor="@color/text_color_79"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="无门槛"/>
+                android:text="身份证+手机号即可贷款"/>
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_help"/>
+    <ImageView
         android:layout_marginTop="10dp"
-        android:layout_height="wrap_content" >
-        <LinearLayout
-            android:padding="10dp"
-            android:background="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="热门推荐"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:text="HOT"
-                android:textColor="#42dca7"
-                android:textSize="14sp"
-                android:typeface="sans" />
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/hot_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_remmon"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
 </LinearLayout>
