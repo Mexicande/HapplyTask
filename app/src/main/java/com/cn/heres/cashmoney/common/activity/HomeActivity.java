@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.cn.heres.cashmoney.adapter.NoTouchViewPager;
 import com.cn.heres.cashmoney.common.fragment.CenterFragment;
 import com.cn.heres.cashmoney.common.fragment.HomeFragment;
-import com.cn.heres.cashmoney.common.fragment.MainFragment;
 import com.cn.heres.cashmoney.common.fragment.WelfareFragment;
 import com.cn.heres.cashmoney.utils.ToastUtils;
 import com.cn.heres.cashmoney.R;

@@ -7,7 +7,7 @@ package com.cn.heres.cashmoney.common;
 public interface Contacts {
     String LEAN_KEY="5bf450a7b465f566330001f0";
     String LEAN_ID="9zeHS4F8GAHi97Fkg0p80FYV-gzGzoHsz";
-    String UMENG_KEY="5bf3b1d8f1f556db7d000156";
+    String UMENG_KEY="5bf450a7b465f566330001f0";
 
     String TOKEN="token";
     String PHONE="phone";

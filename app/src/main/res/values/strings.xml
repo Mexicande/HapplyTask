@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">去哪借</string>
+    <string name="app_name">去哪儿借</string>
     <string name="App_name">去哪借</string>
     <!-- error-->
     <string name="net_error">网络异常</string>
