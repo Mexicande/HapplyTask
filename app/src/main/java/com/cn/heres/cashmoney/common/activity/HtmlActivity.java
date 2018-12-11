@@ -179,9 +179,6 @@ public class HtmlActivity extends AppCompatActivity {
      * 应用内拦截下载
      */
     private void downloadApk(String url) {
-        Uri uri = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
 
     }
 

@@ -254,10 +254,6 @@ public class HomeFragment extends Fragment {
                     intent.putExtra("link",model.getApp());
                     startActivity(intent);
                 }else {
-                  /*  Intent intent=new Intent(getActivity(), HtmlActivity.class);
-                    intent.putExtra("title",model.getAdvername());
-                    intent.putExtra("link",model.getApp());
-                    startActivity(intent);*/
                     Uri uri = Uri.parse(model.getApp());
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
@@ -280,13 +276,17 @@ public class HomeFragment extends Fragment {
                 }else {
                     new BrowsingHistory().execute(product.getId());
 
-                 /*   Intent intent=new Intent(getActivity(), HtmlActivity.class);
-                    intent.putExtra("title",product.getName());
-                    intent.putExtra("link",product.getLink());
-                    startActivity(intent);*/
-                    Uri uri = Uri.parse(product.getLink());
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
+                    boolean open = SPUtil.getBoolean(getActivity(),"open", false);
+                    if(open){
+                        Intent intent=new Intent(getActivity(), HtmlActivity.class);
+                        intent.putExtra("title",product.getName());
+                        intent.putExtra("link",product.getLink());
+                        startActivity(intent);
+                    }else {
+                        Uri uri = Uri.parse(product.getLink());
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }
                 }
             }
         });

@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.cn.heres.cashmoney.adapter.NoTouchViewPager;
+import com.cn.heres.cashmoney.common.SPUtil;
 import com.cn.heres.cashmoney.common.fragment.CenterFragment;
 import com.cn.heres.cashmoney.common.fragment.HomeFragment;
 import com.cn.heres.cashmoney.common.fragment.WelfareFragment;
@@ -26,6 +27,10 @@ import com.cn.heres.cashmoney.common.fragment.HomeFragment;
 import com.cn.heres.cashmoney.common.fragment.WelfareFragment;
 import com.cn.heres.cashmoney.utils.ToastUtils;
 import com.jaeger.library.StatusBarUtil;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
+import com.meituan.android.walle.WalleChannelReader;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.PermissionListener;
 
@@ -65,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
       //  StatusBarUtil.setColor(this, getResources().getColor(R.color.white),114);
         ButterKnife.bind(this);
         initView();
+        setUrl();
     }
     private void initView() {
         viewPager = (NoTouchViewPager) findViewById(R.id.viewPager);
@@ -85,7 +91,33 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    private void setUrl() {
+        Map<String, String> map = new HashMap<>();
+        String channel = WalleChannelReader.getChannel(this.getApplicationContext());
+        map.put("name", "去");
+        map.put("market", channel);
+        OkGo.<String>post("http://api.anwenqianbao.com/v2/vest/getStatus")
+                .params(map)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(Response<String> response) {
+                        try {
+                            JSONObject jsonObject=new JSONObject(response.body());
+                            JSONObject data = jsonObject.getJSONObject("data");
+                            int status = data.getInt("status");
+                            if(status==1){
+                                SPUtil.putBoolean(HomeActivity.this, "open", true);
+                            }else {
+                                SPUtil.putBoolean(HomeActivity.this,"open", false);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
+                    }
+                });
+
+    }
     //创建一个Item
     private BaseTabItem newItem(int drawable, int checkedDrawable, String text){
         NormalItemView normalItemView = new NormalItemView(this);
