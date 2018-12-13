@@ -6,23 +6,29 @@
     android:orientation="vertical"
     android:background="@color/base_white"
     android:layout_height="match_parent"
-    tools:context="com.cn.heres.cashmoney.common.activity.SettingActivity">
+    tools:context="cn.silence.tableaux.common.activity.SettingActivity">
     <include layout="@layout/layout_toolbar"/>
     <com.allen.library.SuperTextView
         android:layout_marginTop="20dp"
+        app:sLeftTextString="清楚缓存"
+        app:sRightTextString="765.32k"
+        app:sRightTextColor="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    </com.allen.library.SuperTextView>
+    <com.allen.library.SuperTextView
         android:id="@+id/super_about"
         app:sLeftTextString="关于我们"
-        app:sDividerLineType="none"
         app:sRightIconRes="@mipmap/icon_arrow_right"
         android:layout_width="match_parent"
         android:layout_height="50dp">
     </com.allen.library.SuperTextView>
     <com.allen.library.SuperTextView
-        app:sDividerLineType="none"
-        android:layout_marginTop="10dp"
         android:id="@+id/super_version"
-        app:sLeftTextString="最新版本"
+        app:sLeftTextString="版本号"
         android:layout_width="match_parent"
+        app:sRightTextString="2.1.3"
+        app:sRightTextColor="@color/color_66"
         android:layout_height="50dp">
     </com.allen.library.SuperTextView>
     <RelativeLayout
@@ -30,8 +36,7 @@
         android:layout_height="match_parent">
         <Button
             android:id="@+id/apply"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginBottom="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +46,6 @@
             android:layout_marginRight="20dp"
             android:textColor="@color/white"
             android:text="退出登录"
-            android:visibility="gone"
             />
     </RelativeLayout>
 </LinearLayout>

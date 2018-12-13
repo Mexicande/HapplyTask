@@ -6,41 +6,58 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/base_white"
-    tools:context="com.cn.heres.cashmoney.common.fragment.CenterFragment">
-      <RelativeLayout
-          android:background="@mipmap/center_bg"
+    tools:context="cn.silence.tableaux.common.fragment.CenterFragment">
+
+      <LinearLayout
+          android:orientation="vertical"
           android:layout_width="match_parent"
-          android:layout_height="200dp">
+          android:layout_height="150dp">
+         <TextView
+             android:layout_marginTop="10dp"
+             android:background="@color/white"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:text="我的"
+             android:textSize="18sp"
+             android:textColor="@color/color_33"
+             android:gravity="center"/>
          <LinearLayout
-             android:paddingTop="30dp"
+             android:layout_marginTop="0.5dp"
+             android:paddingLeft="20dp"
+             android:background="@color/white"
+             android:layout_centerVertical="true"
              android:id="@+id/layout_login"
-             android:layout_centerInParent="true"
-             android:layout_width="wrap_content"
-             android:orientation="vertical"
-             android:layout_height="wrap_content">
+             android:gravity="center_vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:src="@mipmap/icon_header"/>
             <TextView
                 android:id="@+id/tv_login"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/color_66"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 android:text="立即登录"/>
          </LinearLayout>
-      </RelativeLayout>
+      </LinearLayout>
          <LinearLayout
+             android:layout_marginTop="20dp"
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="wrap_content">
             <com.allen.library.SuperTextView
                 android:id="@+id/super_schedule"
                 app:sShapeCornersRadius="10dp"
+                app:sLeftIconRes="@mipmap/icon_sch"
+                app:sLeftIconHeight="20dp"
+                app:sLeftIconWidth="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:sLeftTextString="贷款进度"
@@ -53,7 +70,10 @@
                 app:sShapeCornersRadius="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                app:sLeftIconRes="@mipmap/icon_feed"
                 app:sLeftTextString="我的免息券"
+                app:sLeftIconHeight="20dp"
+                app:sLeftIconWidth="20dp"
                 app:sLeftTextColor="@color/color_33"
                 app:sRightIconRes="@mipmap/icon_arrow_right"
                 >
@@ -69,6 +89,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:sLeftTextString="意见反馈"
+                app:sLeftIconRes="@mipmap/icon_fed"
+                app:sLeftIconHeight="20dp"
+                app:sLeftIconWidth="20dp"
                 app:sLeftTextColor="@color/color_33"
                 app:sRightIconRes="@mipmap/icon_arrow_right"
                 >
@@ -78,6 +101,9 @@
                 app:sShapeCornersRadius="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                app:sLeftIconHeight="20dp"
+                app:sLeftIconWidth="20dp"
+                app:sLeftIconRes="@mipmap/icon_set"
                 app:sLeftTextString="设置"
                 app:sLeftTextColor="@color/color_33"
                 app:sRightIconRes="@mipmap/icon_arrow_right"

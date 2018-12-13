@@ -2,11 +2,11 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"/>
+        />
 
     <TextView
         android:id="@+id/title"
