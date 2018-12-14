@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import cn.silence.tableaux.common.SPUtil;
+import cn.silence.tableaux.common.activity.FeedbackActivity;
+import cn.silence.tableaux.common.activity.SettingActivity;
 import cn.silence.tableaux.bean.LoginEvent;
 import cn.silence.tableaux.R;
 
 import cn.silence.tableaux.common.ActivityUtils;
 import cn.silence.tableaux.common.Contacts;
-import cn.silence.tableaux.common.SPUtil;
 import cn.silence.tableaux.common.activity.EmptyActivity;
-import cn.silence.tableaux.common.activity.FeedbackActivity;
 import cn.silence.tableaux.common.activity.LoginActivity;
-import cn.silence.tableaux.common.activity.SettingActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

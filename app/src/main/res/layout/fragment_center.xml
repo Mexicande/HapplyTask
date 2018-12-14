@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/base_white"
-    tools:context="cn.silence.tableaux.common.fragment.CenterFragment">
+    tools:context="cn.silence.tableaux.com.silence.here.tableaux.common.fragment.CenterFragment">
 
       <LinearLayout
           android:orientation="vertical"

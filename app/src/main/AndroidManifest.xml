@@ -11,14 +11,14 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name=".activity.MyApp"
+        android:name="cn.silence.tableaux.activity.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:replace="icon">
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="cn.silence.tableaux.activity.SplashActivity"
             android:theme="@style/FirstTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,11 +27,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".common.activity.GuideActivity"
+            android:name="cn.silence.tableaux.common.activity.GuideActivity"
             android:theme="@style/AppTheme.Splash" />
-        <activity android:name=".common.activity.HtmlActivity" />
-        <activity android:name=".common.activity.HomeActivity" />
-        <activity android:name=".common.activity.LoginActivity" />
+        <activity android:name="cn.silence.tableaux.common.activity.HtmlActivity" />
+        <activity android:name="cn.silence.tableaux.common.activity.HomeActivity" />
+        <activity android:name="cn.silence.tableaux.common.activity.LoginActivity" />
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -45,19 +45,19 @@
 
         <service android:name=".common.DownAPKService" />
 
-        <activity android:name=".common.activity.CreditActivity"
+        <activity android:name="cn.silence.tableaux.common.activity.CreditActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".common.activity.ProductActivity"
+            android:name="cn.silence.tableaux.common.activity.ProductActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
-        <activity android:name=".common.activity.FeedbackActivity"
+        <activity android:name="cn.silence.tableaux.common.activity.FeedbackActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".common.activity.EmptyActivity"
+        <activity android:name="cn.silence.tableaux.common.activity.EmptyActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".common.activity.SettingActivity"
+        <activity android:name="cn.silence.tableaux.common.activity.SettingActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".common.activity.AboutActivity"
+        <activity android:name="cn.silence.tableaux.common.activity.AboutActivity"
             android:screenOrientation="portrait"></activity>
     </application>
 

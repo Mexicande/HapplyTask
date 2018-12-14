@@ -7,7 +7,7 @@ package cn.silence.tableaux.common;
 public interface Contacts {
     String LEAN_KEY="5bf450a7b465f566330001f0";
     String LEAN_ID="9zeHS4F8GAHi97Fkg0p80FYV-gzGzoHsz";
-    String UMENG_KEY="5c10ad84b465f51cc0000133";
+    String UMENG_KEY="5c132006f1f556920400000d";
 
     String TOKEN="token";
     String PHONE="phone";
