@@ -1,5 +1,6 @@
 package cn.silence.tableaux.common.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -9,6 +10,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cn.silence.tableaux.common.Api;
+import cn.silence.tableaux.common.ApiService;
+import cn.silence.tableaux.common.OnRequestDataListener;
 import cn.silence.tableaux.utils.NetworkUtils;
 import cn.silence.tableaux.utils.StatusBarUtil;
 import cn.silence.tableaux.utils.ToastUtils;
@@ -50,11 +59,12 @@ public class FeedbackActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.apply:
+
+
                 boolean available = NetworkUtils.isAvailable(this);
                 if(available){
                     if(!TextUtils.isEmpty(etMessage.getText().toString())){
-                        ToastUtils.showToast(this,"感觉您的宝贵意见，我们将稍后作答");
-                        finish();
+                        submit(etMessage.getText().toString());
                     }
                 }else {
                     ToastUtils.showToast(this,"网络无法连接");
@@ -63,5 +73,28 @@ public class FeedbackActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+    private void submit(String toString) {
+        JSONObject object=new JSONObject();
+        try {
+            object.put("content",toString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ApiService.POST_SERVICE(Api.FEEDBACK, object, new OnRequestDataListener() {
+            @Override
+            public void requestSuccess(int code, JSONObject json) {
+                ToastUtils.showToast(FeedbackActivity.this,"感觉您的宝贵意见，我们将稍后作答");
+                finish();
+            }
+
+            @Override
+            public void requestFailure(int code, String msg) {
+
+            }
+        });
+
     }
 }

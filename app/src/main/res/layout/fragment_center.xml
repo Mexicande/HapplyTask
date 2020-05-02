@@ -6,8 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/base_white"
-    tools:context="cn.silence.tableaux.com.silence.here.tableaux.common.fragment.CenterFragment">
-
+    >
       <LinearLayout
           android:orientation="vertical"
           android:layout_width="match_parent"
@@ -48,38 +47,6 @@
          </LinearLayout>
       </LinearLayout>
          <LinearLayout
-             android:layout_marginTop="20dp"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
-            <com.allen.library.SuperTextView
-                android:id="@+id/super_schedule"
-                app:sShapeCornersRadius="10dp"
-                app:sLeftIconRes="@mipmap/icon_sch"
-                app:sLeftIconHeight="20dp"
-                app:sLeftIconWidth="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:sLeftTextString="贷款进度"
-                app:sLeftTextColor="@color/color_33"
-                app:sRightIconRes="@mipmap/icon_arrow_right"
-                >
-            </com.allen.library.SuperTextView>
-            <com.allen.library.SuperTextView
-                android:id="@+id/super_free"
-                app:sShapeCornersRadius="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:sLeftIconRes="@mipmap/icon_feed"
-                app:sLeftTextString="我的免息券"
-                app:sLeftIconHeight="20dp"
-                app:sLeftIconWidth="20dp"
-                app:sLeftTextColor="@color/color_33"
-                app:sRightIconRes="@mipmap/icon_arrow_right"
-                >
-            </com.allen.library.SuperTextView>
-         </LinearLayout>
-         <LinearLayout
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="wrap_content">
@@ -90,6 +57,19 @@
                 android:layout_height="50dp"
                 app:sLeftTextString="意见反馈"
                 app:sLeftIconRes="@mipmap/icon_fed"
+                app:sLeftIconHeight="20dp"
+                app:sLeftIconWidth="20dp"
+                app:sLeftTextColor="@color/color_33"
+                app:sRightIconRes="@mipmap/icon_arrow_right"
+                >
+            </com.allen.library.SuperTextView>
+            <com.allen.library.SuperTextView
+                android:id="@+id/super_free"
+                app:sShapeCornersRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:sLeftIconRes="@mipmap/icon_feed"
+                app:sLeftTextString="关于我们"
                 app:sLeftIconHeight="20dp"
                 app:sLeftIconWidth="20dp"
                 app:sLeftTextColor="@color/color_33"

@@ -24,7 +24,7 @@ public class HotAdapter extends BaseQuickAdapter<Product,BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, Product item) {
-        helper.setText(R.id.name,item.getName());
+       // helper.setText(R.id.name,item.getName());
         Glide.with(mContext).load(item.getProduct_logo())
                 .bitmapTransform(new GlideCircleTransform(mContext)).into((ImageView)helper.getView(R.id.logo));
 

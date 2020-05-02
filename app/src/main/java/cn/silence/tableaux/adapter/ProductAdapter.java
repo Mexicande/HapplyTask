@@ -24,17 +24,15 @@ public class ProductAdapter extends BaseQuickAdapter<Product,BaseViewHolder> {
     }
     @Override
     protected void convert(BaseViewHolder helper, Product item) {
-            helper.setText(R.id.tv_ProductName,item.getName());
-        helper .setText(R.id.tv_Summry,item.getProduct_introduction())
-                .setText(R.id.number,item.getSort()+1000+"")
-                .setText(R.id.rate,"日利率: "+item.getMin_algorithm());
-        String maximumAmount = item.getMaximum_amount();
+            helper.setText(R.id.tv_ProductName,item.getProduct_name());
+        helper .setText(R.id.tv_Summry,item.getProduct_desc());
+       /* String maximumAmount = item.getMaximum_amount();
         if(maximumAmount.length()>4){
             String substring = maximumAmount.substring(0, maximumAmount.length() - 4);
             helper.setText(R.id.min_max_Special,item.getMinimum_amount()+"~"+substring+"万");
         }else {
             helper.setText(R.id.min_max_Special,item.getMinimum_amount()+"~"+maximumAmount);
-        }
+        }*/
 
         Glide.with(mContext).load(item.getProduct_logo())
                 .bitmapTransform(new GlideRoundTransform(mContext,5))

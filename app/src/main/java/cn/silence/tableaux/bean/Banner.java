@@ -8,37 +8,48 @@ import java.io.Serializable;
 
 public class Banner implements Serializable{
 
+
     /**
-     * advername : 块钱
-     * pictrue : http://or2eh71ll.bkt.clouddn.com/149760896587611.jpg?e=1497612565&token=Npg7Sanmf4z8uv3mvwwffjOvoCMYN8Ezm4T8pDrC:JtsY_HbNvx0i61EQBskQOZRAhsU=
-     * app : https://www.99bill.com/seashell/html/activity/161125_kyhcach_mm/default.html?datasrc=link106
+     * url : http://obd7ty4wc.bkt.clouddn.com/默认130.png
+     * app_url : http://a.app.qq.com/o/simple.jsp?pkgname=com.j1319947515.ikm
+     * h5_link : http://a.app.qq.com/o/simple.jsp?pkgname=com.j1319947515.ikm
+     * name : 速贷之家直接下载
      */
 
-    private String advername;
-    private String pictrue;
-    private String app;
+    private String url;
+    private String app_url;
+    private String h5_link;
+    private String name;
 
-    public String getAdvername() {
-        return advername;
+    public String getUrl() {
+        return url;
     }
 
-    public void setAdvername(String advername) {
-        this.advername = advername;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getPictrue() {
-        return pictrue;
+    public String getApp_url() {
+        return app_url;
     }
 
-    public void setPictrue(String pictrue) {
-        this.pictrue = pictrue;
+    public void setApp_url(String app_url) {
+        this.app_url = app_url;
     }
 
-    public String getApp() {
-        return app;
+    public String getH5_link() {
+        return h5_link;
     }
 
-    public void setApp(String app) {
-        this.app = app;
+    public void setH5_link(String h5_link) {
+        this.h5_link = h5_link;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

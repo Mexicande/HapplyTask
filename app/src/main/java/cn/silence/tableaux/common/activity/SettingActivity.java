@@ -58,9 +58,6 @@ public class SettingActivity extends AppCompatActivity {
             case R.id.toolbar_back:
                 finish();
                 break;
-            case R.id.super_about:
-                ActivityUtils.startActivity(AboutActivity.class);
-                break;
             case R.id.super_version:
                 ToastUtils.showToast(this,"已经是最近版本啦！");
                 break;

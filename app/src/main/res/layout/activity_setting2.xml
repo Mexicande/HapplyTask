@@ -16,13 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
     </com.allen.library.SuperTextView>
-    <com.allen.library.SuperTextView
-        android:id="@+id/super_about"
-        app:sLeftTextString="关于我们"
-        app:sRightIconRes="@mipmap/icon_arrow_right"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-    </com.allen.library.SuperTextView>
+
     <com.allen.library.SuperTextView
         android:id="@+id/super_version"
         app:sLeftTextString="版本号"

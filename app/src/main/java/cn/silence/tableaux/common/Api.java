@@ -6,10 +6,10 @@ package cn.silence.tableaux.common;
 
 public interface Api {
 
-     String HOST="http://api.shoujiweidai.cn/v1/";
-     String URL=HOST+"product/getProduct";
+     String HOST="http://api.shengcaiquan.com/v1/";
+     String URL=HOST+"recommends";
     /**banner **/
-    String BANNER=HOST+"banner/getBanner";
+    String BANNER=HOST+"banners";
     /**产品 **/
      String PRODUCT_LSIT=HOST+"vest/hotProduct";
     /**iv_welfare_select **/
@@ -21,18 +21,20 @@ public interface Api {
     /**大全**/
     String LSIT=HOST+"vest/product";
     /**帮你借**/
-    String HELP=HOST+"borrow/url";
+    String FEEDBACK=HOST+"feedback";
     /**筛选**/
     String SCREEN=HOST+"vest/screening";
     /**统计**/
     String APPLY=HOST+"product/apply";
+    String ABOUT = HOST+"/help/shareours";
+
     interface   LOGIN{
         /** 新or老用户**/
-        String  isOldUser=HOST+"sms/getCode";
+        String  isOldUser=HOST+"sms/register";
         /** 验证码获取**/
         String  CODE=HOST+"sms/getcode";
         /** 验证码效验**/
-        String  CHECKCODE=HOST+"quick/login";
+        String  CHECKCODE=HOST+"auth/login";
         /** 登陆**/
         String  QUICKLOGIN=HOST+"quick/login";
         /** 完善信息**/

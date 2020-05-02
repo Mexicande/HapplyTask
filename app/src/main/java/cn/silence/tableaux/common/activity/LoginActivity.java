@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     private KProgressHUD hud;
     private String phone;
     private int isolduser;
-
+    private String sign;
     private CodeUtils codeUtils;
     private String yanZhengResult;
     private String etYanZhengCode;
@@ -235,23 +235,22 @@ public class LoginActivity extends AppCompatActivity {
 
         JSONObject object = new JSONObject();
         try {
-            object.put("userphone", phone);
-            object.put("app_name", getString(R.string.app_name));
-            object.put("terminal", "2");
+            object.put("mobile", phone);
+            object.put("sign", sign);
+            object.put("version", "2");
             object.put("code", code);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-
-        ApiService.GET_SERVICE(Api.LOGIN.CHECKCODE, object, new OnRequestDataListener() {
+        ApiService.POST_SERVICE(Api.LOGIN.CHECKCODE, object, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject data) {
                 hud.dismiss();
 
                 try {
                     JSONObject date = data.getJSONObject("data");
-                    String token = date.getString("token");
+                    String token = date.getString("accessToken");
                     SPUtil.putString(Contacts.TOKEN, token);
                     SPUtil.putString(Contacts.PHONE, phone);
                     EventBus.getDefault().post(new LoginEvent(phone));
@@ -260,17 +259,10 @@ public class LoginActivity extends AppCompatActivity {
                     if (!TextUtils.isEmpty(title)) {
                         String id = getIntent().getStringExtra("id");
                         new BrowsingHistory().execute(id);
-                        boolean open = SPUtil.getBoolean(LoginActivity.this,"open", false);
-                        if(open){
                             Intent intent=new Intent(LoginActivity.this, HtmlActivity.class);
                             intent.putExtra("title",title);
                             intent.putExtra("link",link);
                             startActivity(intent);
-                        }else {
-                            Uri uri = Uri.parse(link);
-                            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                            startActivity(intent);
-                        }
                     } else {
                         Intent intent = new Intent();
                         intent.putExtra("phone", phone);
@@ -301,59 +293,23 @@ public class LoginActivity extends AppCompatActivity {
 
         JSONObject object = new JSONObject();
         try {
-            object.put("userphone", phone);
-            object.put("app_name", getString(R.string.app_name));
-            object.put("terminal", "2");
+            object.put("mobile", phone);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        ApiService.GET_SERVICE(Api.LOGIN.isOldUser, object, new OnRequestDataListener() {
+        ApiService.POST_SERVICE(Api.LOGIN.isOldUser, object, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject data) {
                 hud.dismiss();
                 try {
                     JSONObject date = data.getJSONObject("data");
-                    oldNew = date.getInt("is_user");
-                    if (oldNew == 0) {
-                        String token = date.getString("token");
-                        SPUtil.putString(Contacts.TOKEN, token);
-                        SPUtil.putString(Contacts.PHONE, phone);
-                        layoutCode.setVisibility(View.GONE);
-                        EventBus.getDefault().post(new LoginEvent(phone));
-                        String title = getIntent().getStringExtra("title");
-                        String link = getIntent().getStringExtra("link");
-                        if (!TextUtils.isEmpty(title)) {
-                            String id = getIntent().getStringExtra("id");
-                            new BrowsingHistory().execute(id);
-                            boolean open = SPUtil.getBoolean(LoginActivity.this,"open", false);
-                            if(open){
-                                Intent intent=new Intent(LoginActivity.this, HtmlActivity.class);
-                                intent.putExtra("title",title);
-                                intent.putExtra("link",link);
-                                startActivity(intent);
-                            }else {
-                                Uri uri = Uri.parse(link);
-                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                startActivity(intent);
-                            }
-
-                        } else {
-                            Intent intent = new Intent();
-                            intent.putExtra("phone", phone);
-                            setResult(200, intent);
-                        }
-                        finish();
-
-                    } else {
+                    sign = date.getString("sign");
                         captchaTimeCount.start();
                         view.setVisibility(View.VISIBLE);
                         layoutResult.setVisibility(View.GONE);
                         layoutCode.setVisibility(View.VISIBLE);
                         btLogin.setEnabled(false);
                         btLogin.setUseShape();
-                    }
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();

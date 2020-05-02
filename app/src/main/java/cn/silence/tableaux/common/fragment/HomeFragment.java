@@ -106,7 +106,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void fillBannerItem(BGABanner banner, ImageView itemView, Banner model, int position) {
                 Glide.with(getActivity())
-                        .load(model.getPictrue())
+                        .load(model.getUrl())
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .centerCrop()
                         .dontAnimate()
@@ -116,14 +116,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void getDate() {
-        JSONObject jsonObject=new JSONObject();
-        try {
-            jsonObject.put("type","8");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         /**product_list**/
-        ApiService.GET_SERVICE(Api.URL, jsonObject, new OnRequestDataListener() {
+        ApiService.GET_SERVICE(Api.URL, new JSONObject(), new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {
                 if (mRefreshLayout.isRefreshing()) {
@@ -197,37 +191,6 @@ public class HomeFragment extends Fragment {
         View view = getActivity().getLayoutInflater().inflate(R.layout.header_layout, null);
 
         banner = (BGABanner) view.findViewById(R.id.banner_fresco_demo_content);
-        ButterKnife.findById(view,R.id.layout_credit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProductActivity.launch(getActivity(),"11");
-            }
-        });
-        ButterKnife.findById(view,R.id.apply).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HomeActivity.navigationController.setSelect(1);
-            }
-        });
-
-        ButterKnife.findById(view,R.id.layout_spped).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProductActivity.launch(getActivity(),"4");
-            }
-        });
-        ButterKnife.findById(view,R.id.layout_capacity).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProductActivity.launch(getActivity(),"7");
-            }
-        });
-        ButterKnife.findById(view,R.id.layout_small).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProductActivity.launch(getActivity(),"9");
-            }
-        });
 
         return view;
 
@@ -240,12 +203,13 @@ public class HomeFragment extends Fragment {
                 String token = SPUtil.getString( Contacts.TOKEN);
                 if(TextUtils.isEmpty(token)){
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
-                    intent.putExtra("title",model.getAdvername());
-                    intent.putExtra("link",model.getApp());
+                    intent.putExtra("title",model.getName());
+                    intent.putExtra("link",model.getApp_url());
                     startActivity(intent);
                 }else {
-                    Uri uri = Uri.parse(model.getApp());
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    Intent intent=new Intent(getActivity(), LoginActivity.class);
+                    intent.putExtra("title",model.getName());
+                    intent.putExtra("link",model.getApp_url());
                     startActivity(intent);
                 }
             }
@@ -259,24 +223,16 @@ public class HomeFragment extends Fragment {
                 String token = SPUtil.getString( Contacts.TOKEN);
                 if(TextUtils.isEmpty(token)){
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
-                    intent.putExtra("title",product.getName());
-                    intent.putExtra("link",product.getLink());
+                    intent.putExtra("title",product.getProduct_name());
+                    intent.putExtra("link",product.getH5_link());
                     intent.putExtra("id",product.getId());
                     startActivity(intent);
                 }else {
-                    new BrowsingHistory().execute(product.getId());
-
-                    boolean open = SPUtil.getBoolean(getActivity(),"open", false);
-                    if(open){
+                    new BrowsingHistory().execute(product.getProduct_id());
                         Intent intent=new Intent(getActivity(), HtmlActivity.class);
-                        intent.putExtra("title",product.getName());
-                        intent.putExtra("link",product.getLink());
+                        intent.putExtra("title",product.getProduct_name());
+                        intent.putExtra("link",product.getH5_link());
                         startActivity(intent);
-                    }else {
-                        Uri uri = Uri.parse(product.getLink());
-                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                        startActivity(intent);
-                    }
                 }
             }
         });

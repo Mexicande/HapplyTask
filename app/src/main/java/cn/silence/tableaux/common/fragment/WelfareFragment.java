@@ -85,8 +85,8 @@ public class WelfareFragment extends Fragment {
                 String token = SPUtil.getString( Contacts.TOKEN);
                 if(TextUtils.isEmpty(token)){
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
-                    intent.putExtra("title",product.getName());
-                    intent.putExtra("link",product.getLink());
+                    intent.putExtra("title",product.getProduct_name());
+                    intent.putExtra("link",product.getH5_link());
                     intent.putExtra("id",product.getId());
                     startActivity(intent);
                 }else {
@@ -94,11 +94,11 @@ public class WelfareFragment extends Fragment {
                     boolean open = SPUtil.getBoolean(getActivity(),"open", false);
                     if(open){
                         Intent intent=new Intent(getActivity(), HtmlActivity.class);
-                        intent.putExtra("title",product.getName());
-                        intent.putExtra("link",product.getLink());
+                        intent.putExtra("title",product.getProduct_name());
+                        intent.putExtra("link",product.getH5_link());
                         startActivity(intent);
                     }else {
-                        Uri uri = Uri.parse(product.getLink());
+                        Uri uri = Uri.parse(product.getH5_link());
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     }

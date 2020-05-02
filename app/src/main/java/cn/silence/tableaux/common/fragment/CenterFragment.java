@@ -11,8 +11,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import cn.silence.tableaux.common.Api;
+import cn.silence.tableaux.common.ApiService;
+import cn.silence.tableaux.common.OnRequestDataListener;
 import cn.silence.tableaux.common.SPUtil;
+import cn.silence.tableaux.common.activity.AboutActivity;
 import cn.silence.tableaux.common.activity.FeedbackActivity;
+import cn.silence.tableaux.common.activity.HtmlActivity;
 import cn.silence.tableaux.common.activity.SettingActivity;
 import cn.silence.tableaux.bean.LoginEvent;
 import cn.silence.tableaux.R;
@@ -24,6 +29,8 @@ import cn.silence.tableaux.common.activity.LoginActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,6 +54,7 @@ public class CenterFragment extends Fragment {
     private final int LOAN_REQUESTION=20000;
     private final int FREE_REQUESTION=30000;
     private final int RESULT_CODE=200;
+    private String ABOUT;
     public CenterFragment() {
         // Required empty public constructor
     }
@@ -62,7 +70,7 @@ public class CenterFragment extends Fragment {
             EventBus.getDefault().register(this);
         }
         initView();
-
+        getData();
         return view;
     }
 
@@ -74,6 +82,35 @@ public class CenterFragment extends Fragment {
         }
 
     }
+
+
+    private void getData() {
+
+        ApiService.GET_SERVICE(Api.ABOUT, new JSONObject(), new OnRequestDataListener() {
+            @Override
+            public void requestSuccess(int code, JSONObject json) {
+
+                try {
+                    JSONObject data = json.getJSONObject("data");
+                    ABOUT = data.getString("share_our");
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void requestFailure(int code, String msg) {
+
+            }
+        });
+
+
+    }
+
+
     @Subscribe
     public void getLogin(LoginEvent event){
         if(event.msg!=null){
@@ -90,31 +127,16 @@ public class CenterFragment extends Fragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.super_schedule, R.id.super_free,
+    @OnClick({ R.id.super_free,
             R.id.super_feedback, R.id.super_setting,R.id.layout_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.super_schedule:
-                token = SPUtil.getString(Contacts.TOKEN);
-                if(TextUtils.isEmpty(token)){
-                    Intent intent = new Intent(getActivity(), LoginActivity.class);
-                    startActivityForResult(intent,LOAN_REQUESTION);
-                }else {
-                    Intent intent = new Intent(getActivity(), EmptyActivity.class);
-                    intent.putExtra("title","贷款进度");
-                    startActivity(intent);
-                }
-                break;
             case R.id.super_free:
                 token = SPUtil.getString(Contacts.TOKEN);
-                if(TextUtils.isEmpty(token)){
-                    Intent intent = new Intent(getActivity(), LoginActivity.class);
-                    startActivityForResult(intent,FREE_REQUESTION);
-                }else {
-                    Intent intent = new Intent(getActivity(), EmptyActivity.class);
-                    intent.putExtra("title","我的免息券");
-                    startActivity(intent);
-                }
+                 Intent intent = new Intent(getActivity(), HtmlActivity.class);
+                 intent.putExtra("link",ABOUT);
+                 intent.putExtra("name","关于我们");
+                startActivityForResult(intent,FREE_REQUESTION);
                 break;
             case R.id.super_feedback:
                 ActivityUtils.startActivity(FeedbackActivity.class);

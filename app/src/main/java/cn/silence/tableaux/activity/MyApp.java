@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 
+import cn.silence.tableaux.common.AppUtils;
 import cn.silence.tableaux.common.Contacts;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.HttpHeaders;
@@ -45,7 +46,8 @@ public class MyApp extends Application {
         MobclickAgent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this, Contacts.UMENG_KEY
                 ,channel));
         HttpHeaders parser=new HttpHeaders();
-        parser.put("channel",channel);
+        parser.put("market",channel);
+        parser.put("channel", AppUtils.getAppName());
         OkGo.getInstance().init(this)
                 .addCommonHeaders(parser);
     }
