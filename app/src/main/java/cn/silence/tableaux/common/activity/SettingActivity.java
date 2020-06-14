@@ -52,7 +52,7 @@ public class SettingActivity extends AppCompatActivity {
             apply.setVisibility(View.VISIBLE);
         }
     }
-    @OnClick({R.id.toolbar_back, R.id.super_about, R.id.super_version,R.id.apply})
+    @OnClick({R.id.toolbar_back,  R.id.super_version,R.id.apply})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.toolbar_back:

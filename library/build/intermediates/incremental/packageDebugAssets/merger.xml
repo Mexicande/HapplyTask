@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\Work\Company\huolihua\library\assets"/><source path="D:\Work\Company\huolihua\library\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\Work\Company\huolihua\library\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\Work\Company\HapplyTask\library\assets"/><source path="D:\Work\Company\HapplyTask\library\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\Work\Company\HapplyTask\library\src\debug\assets"/></dataSet></merger>
