@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HapplyTask.iml" filepath="$PROJECT_DIR$/HapplyTask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/HapplyTask-app.iml" filepath="$PROJECT_DIR$/app/HapplyTask-app.iml" group="HapplyTask/app" />
+      <module fileurl="file://$PROJECT_DIR$/library/HapplyTask-library.iml" filepath="$PROJECT_DIR$/library/HapplyTask-library.iml" group="HapplyTask/library" />
+      <module fileurl="file://$PROJECT_DIR$/pager-bottom-tab-strip/HapplyTask-pager-bottom-tab-strip.iml" filepath="$PROJECT_DIR$/pager-bottom-tab-strip/HapplyTask-pager-bottom-tab-strip.iml" group="HapplyTask/pager-bottom-tab-strip" />
+      <module fileurl="file://$PROJECT_DIR$/Product-HapplyTask.iml" filepath="$PROJECT_DIR$/Product-HapplyTask.iml" group="HapplyTask" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/pager-bottom-tab-strip/pager-bottom-tab-strip.iml" filepath="$PROJECT_DIR$/pager-bottom-tab-strip/pager-bottom-tab-strip.iml" />

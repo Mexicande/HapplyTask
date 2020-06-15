@@ -6,7 +6,8 @@ package cn.silence.tableaux.common;
 
 public interface Api {
 
-     String HOST="http://api.shengcaiquan.com/v1/";
+    // String HOST="http://api.shengcaiquan.com/v1/";
+     String HOST="http://task-api.quanminhai.com/v1/";
      String URL=HOST+"recommends";
     /**banner **/
     String BANNER=HOST+"banners";
