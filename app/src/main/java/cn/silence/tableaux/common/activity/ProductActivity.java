@@ -77,7 +77,7 @@ public class ProductActivity extends AppCompatActivity {
         mProductAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Product product = mProductAdapter.getData().get(position);
+            /*    Product product = mProductAdapter.getData().get(position);
                 String token = SPUtil.getString(Contacts.TOKEN);
                 if (TextUtils.isEmpty(token)) {
                     Intent intent = new Intent(ProductActivity.this, LoginActivity.class);
@@ -98,7 +98,7 @@ public class ProductActivity extends AppCompatActivity {
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     }
-                }
+                }*/
             }
         });
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -158,7 +158,7 @@ public class ProductActivity extends AppCompatActivity {
                     Product[] welfare = gson.fromJson(data, Product[].class);
                     if (welfare.length > 0) {
                         List<Product> welfare1 = Arrays.asList(welfare);
-                        mProductAdapter.setNewData(welfare1);
+                       // mProductAdapter.setNewData(welfare1);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

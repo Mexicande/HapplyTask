@@ -32,7 +32,6 @@ import cn.silence.tableaux.common.Contacts;
 import cn.silence.tableaux.common.activity.LoginActivity;
 import cn.silence.tableaux.common.OnRequestDataListener;
 import cn.silence.tableaux.common.SPUtil;
-import cn.silence.tableaux.common.activity.ProductActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -207,7 +206,7 @@ public class HomeFragment extends Fragment {
                     intent.putExtra("link",model.getApp_url());
                     startActivity(intent);
                 }else {
-                    Intent intent=new Intent(getActivity(), LoginActivity.class);
+                    Intent intent=new Intent(getActivity(), HtmlActivity.class);
                     intent.putExtra("title",model.getName());
                     intent.putExtra("link",model.getApp_url());
                     startActivity(intent);

@@ -21,7 +21,7 @@ android {
         release {
             v1SigningEnabled true
             v2SigningEnabled true
-            storeFile file("/Users/apple/Documents/jks/安卓.jks")
+            storeFile file("/Users/shangpeng/Documents/公司/jks/安卓.jks")
             storePassword "000000"
             keyAlias "安卓"
             keyPassword "000000"

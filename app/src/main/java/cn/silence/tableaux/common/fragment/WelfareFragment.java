@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import cn.silence.tableaux.bean.Product;
+import cn.silence.tableaux.bean.Welfare;
 import cn.silence.tableaux.utils.BrowsingHistory;
 import cn.silence.tableaux.utils.RecyclerViewDecoration;
 
@@ -81,27 +82,35 @@ public class WelfareFragment extends Fragment {
         mProductAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Product product = mProductAdapter.getData().get(position);
+                Welfare.DataBean.ListBean product = mProductAdapter.getData().get(position);
                 String token = SPUtil.getString( Contacts.TOKEN);
+                if(TextUtils.isEmpty(product.getH5_url())){
+                    return;
+                }
+
                 if(TextUtils.isEmpty(token)){
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
-                    intent.putExtra("title",product.getProduct_name());
-                    intent.putExtra("link",product.getH5_link());
+                    intent.putExtra("title",product.getName());
+                    intent.putExtra("link",product.getH5_url());
                     intent.putExtra("id",product.getId());
                     startActivity(intent);
                 }else {
                     new BrowsingHistory().execute(product.getId());
-                    boolean open = SPUtil.getBoolean(getActivity(),"open", false);
-                    if(open){
+                    //boolean open = SPUtil.getBoolean(getActivity(),"open", false);
+                    Intent intent=new Intent(getActivity(), HtmlActivity.class);
+                    intent.putExtra("title",product.getName());
+                    intent.putExtra("link",product.getH5_url());
+                    startActivity(intent);
+                   /* if(open){
                         Intent intent=new Intent(getActivity(), HtmlActivity.class);
-                        intent.putExtra("title",product.getProduct_name());
-                        intent.putExtra("link",product.getH5_link());
+                        intent.putExtra("title",product.getName());
+                        intent.putExtra("link",product.getH5_url());
                         startActivity(intent);
                     }else {
-                        Uri uri = Uri.parse(product.getH5_link());
+                        Uri uri = Uri.parse(product.getH5_url());
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
-                    }
+                    }*/
                 }
             }
         });
@@ -114,7 +123,6 @@ public class WelfareFragment extends Fragment {
     }
 
     private void initView() {
-        title.setText("贷款");
         mProductAdapter = new ProductAdapter(null);
         mRecylerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         RecyclerViewDecoration decoration = new RecyclerViewDecoration(10);
@@ -132,21 +140,14 @@ public class WelfareFragment extends Fragment {
             e.printStackTrace();
         }
 
-        ApiService.GET_SERVICE(Api.URL, jsonObject, new OnRequestDataListener() {
+        ApiService.GET_SERVICE(Api.PRODUCT_LSIT, jsonObject, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {
                 if(mSwip.isRefreshing()){
                     mSwip.setRefreshing(false);
                 }
-                try {
-                    String data = json.getString("data");
-
-                    List<Product> mRecommendList = new Gson().fromJson(data, new TypeToken<List<Product>>() {
-                    }.getType());
-                        mProductAdapter.setNewData(mRecommendList);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                Welfare welfare = new Gson().fromJson(json.toString(), Welfare.class);
+                mProductAdapter.setNewData(welfare.getData().getList());
 
             }
 
