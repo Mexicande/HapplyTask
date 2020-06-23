@@ -20,6 +20,15 @@ public class Banner implements Serializable{
     private String app_url;
     private String h5_link;
     private String name;
+    private String product_name;
+
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
 
     public String getUrl() {
         return url;
@@ -51,5 +60,15 @@ public class Banner implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Banner{" +
+                "url='" + url + '\'' +
+                ", app_url='" + app_url + '\'' +
+                ", h5_link='" + h5_link + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

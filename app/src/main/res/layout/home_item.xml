@@ -61,7 +61,7 @@
             android:textSize="12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="申请"/>
+            android:text="去试试"/>
         <TextView
             android:lines="1"
             android:layout_toLeftOf="@id/apply"

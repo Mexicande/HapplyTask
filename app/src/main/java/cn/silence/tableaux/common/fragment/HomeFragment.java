@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import cn.silence.tableaux.adapter.HomeAdapter;
 import cn.silence.tableaux.bean.Banner;
 import cn.silence.tableaux.bean.Product;
 import cn.silence.tableaux.utils.BrowsingHistory;
+import cn.silence.tableaux.utils.LogUtils;
 import cn.silence.tableaux.utils.RecycleViewDivider;
 import cn.silence.tableaux.utils.ToastUtils;
 import cn.silence.tableaux.R;
@@ -166,6 +168,7 @@ public class HomeFragment extends Fragment {
                     if(banners.length>0){
                         List<Banner> banners1 = Arrays.asList(banners);
                         banner.setData(banners1, null);
+                        LogUtils.d("banners1="+banners1.toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -203,12 +206,12 @@ public class HomeFragment extends Fragment {
                 if(TextUtils.isEmpty(token)){
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
                     intent.putExtra("title",model.getName());
-                    intent.putExtra("link",model.getApp_url());
+                    intent.putExtra("link",model.getH5_link());
                     startActivity(intent);
                 }else {
                     Intent intent=new Intent(getActivity(), HtmlActivity.class);
                     intent.putExtra("title",model.getName());
-                    intent.putExtra("link",model.getApp_url());
+                    intent.putExtra("link",model.getH5_link());
                     startActivity(intent);
                 }
             }

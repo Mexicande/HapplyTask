@@ -177,6 +177,10 @@ public class HtmlActivity extends AppCompatActivity {
      */
     private void downloadApk(String url) {
 
+        Uri uri = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+
     }
 
     @Override
